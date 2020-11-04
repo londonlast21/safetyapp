@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post, Comment } = require('../models');
+const { User, Post } = require('../models');
 
 // validation
 const { signToken } = require('../utils/auth');
@@ -10,6 +10,19 @@ const resolvers = {
             return 'hello';
         },
 
+        me: async (parent, args, context) => {
+            if (context.user) {
+              const userData = await User.findOne({ _id: context.user._id })
+                .select('-__v -password')
+                .populate('thoughts')
+                .populate('friends');
+      
+              return userData;
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
+      
         async getUsers(){
             console.log('getusers');
             try{
@@ -24,7 +37,7 @@ const resolvers = {
 
         async getUser(_, {  }){
             try{
-            const user = await User.findById(userId);
+            const user = await User.findById(username);
             if(user){
                 return user;
             } else {
