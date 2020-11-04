@@ -21,7 +21,7 @@ const resolvers = {
             }
 
         },
-        async getPost(_, { postId }){
+        async getPost(_, {  }){
             try{
             const post = await Post.findById(postId);
             if(post){
@@ -29,11 +29,24 @@ const resolvers = {
             } else {
                 throw new Error('Post not found')
             }
-          } catch(err){
+          } catch(err){asdas
             throw new Error(err)
           }
         }
 
+    },
+
+    Mutation: {
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+
+            return user;
+
+        },
+        login: async () => {
+
+        }
+        
     }
 };
 

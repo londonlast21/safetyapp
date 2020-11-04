@@ -18,7 +18,7 @@ const typeDefs = gql`
         type: String!
         location: String!
         createdAt: String
-        username: String!
+        username: String
         comments: [Comment]
 
         
@@ -34,8 +34,14 @@ const typeDefs = gql`
 
     type Query {
         helloWorld: String
+
         getPosts: [Post]
         getPost(postId: ID!): Post
+    }
+
+    type Mutation {
+        login(email: String!, password: String!): User
+        addUser(username: String!, email: String!, password: String!): User
     }
 
 `;
