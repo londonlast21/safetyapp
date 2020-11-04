@@ -2,13 +2,17 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose.Schema;
 const moment = require('moment');
 
+const bcrypt = require('bcrypt');
+
+
 
 // Create User schema
 const UserSchema = new Schema ({
     username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim: true
     },
     email: {
         type: String,
