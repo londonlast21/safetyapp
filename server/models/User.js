@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Schema, model } = mongoose.Schema;
+const { Schema } = mongoose.Schema;
 const moment = require('moment');
 
 const bcrypt = require('bcrypt');
@@ -17,10 +17,9 @@ const UserSchema = new Schema ({
     email: {
         type: String,
         required: true,
-        unique: true
-        //,
+        unique: true,
         // need working regex
-        //match: [^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+, 'Must enter valid email address']
+        match: [/.+@.+\..+/, 'Must enter valid email address']
     },
     password: {
         type: String,
@@ -54,4 +53,16 @@ const UserSchema = new Schema ({
 
 );
 
-module.exports = User = mongoose.model('users', )
+UserSchema.pre('save', async function(next) {
+    if (this.isNew || this.isModified('password')) {
+        const saltRouned= 10;
+        this.password = await bcrypt.hash(this.password, saltRounds);
+    }
+
+    next();
+});
+
+
+const User = mongoose.model('users', UserSchema);
+
+module.exports = User;
