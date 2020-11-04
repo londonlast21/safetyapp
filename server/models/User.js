@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose.Schema;
+const { Schema } = mongoose;
 const moment = require('moment');
+const Post = require('./Post');
+const Comment= require('./Comment');
 
 const bcrypt = require('bcrypt');
 
@@ -61,6 +63,9 @@ UserSchema.pre('save', async function(next) {
 
     next();
 });
+UserSchema.methods.isCorrectPassword = async function(password) {
+    return await bcrypt.compare(password, this.password);
+}
 
 
 const User = mongoose.model('users', UserSchema);

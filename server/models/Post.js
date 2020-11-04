@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const { Schema, model } = mongoose.Schema;
+const { Schema, model } = mongoose;
 const moment = require('moment');
 
 const CommentSchema = require('./Comment');
 
 
 // Create Post schema
-const PostSchema = new Schema ({
+const PostSchema = new Schema({
     name: {
         type: String,
         required: true,

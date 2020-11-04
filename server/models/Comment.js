@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose');
 const moment = require('moment');
 
-const ReactionSchema = new Schema({
+const CommentSchema = new Schema({
     commentBody: {
         type: String,
         required: true,

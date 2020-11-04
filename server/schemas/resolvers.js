@@ -1,4 +1,4 @@
-const { AuthenticationError } = require(apollo-server-express);
+const { AuthenticationError } = require('apollo-server-express');
 const { User, Post, Comment } = require('../models');
 
 
