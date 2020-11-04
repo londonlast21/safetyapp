@@ -29,7 +29,7 @@ const resolvers = {
             } else {
                 throw new Error('Post not found')
             }
-          } catch(err){asdas
+          } catch(err){
             throw new Error(err)
           }
         }
@@ -43,8 +43,20 @@ const resolvers = {
             return user;
 
         },
-        login: async () => {
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
 
+            if (!user) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            const correctPw = await user.isCorrectPassword(password);
+
+            if (!correctPw) {
+                throw new AuthenticationError('Incorrect credentials');
+            }
+
+            return user;
         }
         
     }
