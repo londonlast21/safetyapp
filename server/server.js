@@ -1,31 +1,30 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const { ApolloServer } = require('apollo-server-express');
+const path = require('path');
 
+const { typeDefs, resolvers } = require('./schemas');
+//const { authMiddleware } = require('./utils/auth');
+const db = require('./config/connection');
+
+const PORT = process.env.PORT || 3005;
 const app = express();
 
-// Body Parser middleware
-app.use(
-    bodyParser.urlencoded({
-        extended:false
-    })
-);
-app.use(bodyParser.json());
+// create the apollo server here
+const server = new ApolloServer({
+    typeDefs,
+    resolvers
+});
 
-// DB Confi
-const db = require('./config/keys').mongoURI;
+// add express as middleware to apollo server i made
+server.applyMiddleware({ app });
 
-// Connect to MongoDb....
-mongoose
-    .connect(
-        db,
-        { useNewUrlParser: true },
-        { useUnifiedTopolgy: true }
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
-    )
-    .then(() => console.log("Connected to MongoDB"))
-    .catch(err => console.log(err));
+db.once('open', () => {
+    app.listen(PORT, () => {
+        console.log(`Server running at port ${PORT}!`);
 
-const PORT = process.env.PORT || 3001
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+        console.log(`GraphQL running at http://localhost:{$PORT}${server.graphqlPath}`);
+    });
+});
