@@ -19,6 +19,7 @@ const typeDefs = gql`
         location: String!
         createdAt: String
         username: String
+        commentCount: Int
         comments: [Comment]
 
         
@@ -32,16 +33,26 @@ const typeDefs = gql`
 
     }
 
+    type Auth {
+        token: ID!
+        user: User
+    }
+
     type Query {
         helloWorld: String
 
+        me: User
+
+        getUsers: [User]
+        getUser(_id: ID!): User
+
         getPosts: [Post]
-        getPost(postId: ID!): Post
+        getPost(_id: ID!): Post
     }
 
     type Mutation {
-        login(email: String!, password: String!): User
-        addUser(username: String!, email: String!, password: String!): User
+        login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
     }
 
 `;
