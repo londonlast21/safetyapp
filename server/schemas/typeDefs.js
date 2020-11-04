@@ -34,6 +34,8 @@ const typeDefs = gql`
 
     type Query {
         helloWorld: String
+        getPosts: [Post]
+        getPost(postId: ID!): Post
     }
 
 `;
