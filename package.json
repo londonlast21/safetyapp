@@ -1,0 +1,19 @@
+{
+  "name": "safetyapp",
+  "version": "1.0.0",
+  "description": "A trans-safe healthcare directory",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/londonlast21/safetyapp.git"
+  },
+  "author": "Jack Cady",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/londonlast21/safetyapp/issues"
+  },
+  "homepage": "https://github.com/londonlast21/safetyapp#readme"
+}
