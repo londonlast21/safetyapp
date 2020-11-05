@@ -7,6 +7,7 @@ import ApolloClient from 'apollo-boost';
 
 // CSS here
 import 'semantic-ui-css/semantic.min.css';
+import './App.css';
 
 // Navbar
 import Navbar from './components/Navbar';

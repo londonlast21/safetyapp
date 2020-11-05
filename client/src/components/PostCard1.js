@@ -1,21 +1,16 @@
-import React, { useContext } from 'react';
-import { Button, Card } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
+import { Button, Card } from 'semantic-ui-react'
 
-import { AuthContext } from '../utils/auth';
-import DeleteButton from './DeleteButton';
 
 
 function PostCard({ posts: { name, type, createdAt, id, username, commentCount, location }}){
+   
 
-    const { user } = useContext(AuthContext);
-    
-    function commentOnPost(){
-        console.log("comment")
-    }
     return (
+        
         <Card fluid>
               <Card.Content>
                 <Card.Header as={Link} to={`/posts/${id}`}>{name}</Card.Header>
@@ -35,12 +30,12 @@ function PostCard({ posts: { name, type, createdAt, id, username, commentCount, 
             <Button color='instagram' as={Link} to={`/posts/${id}`}>
                 Leave Review
             </Button>
+             delet button only shows up on posts user has created */}
             {user && user.username === username && <DeleteButton postId={id} />}
-          
+           
             </Card.Content>
         </Card>
-    )
-
-}
+    );
+};
 
 export default PostCard;
