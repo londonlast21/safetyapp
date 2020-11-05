@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 
 import { useQuery } from '@apollo/react-hooks';
@@ -6,6 +6,7 @@ import { FETCH_POSTS_QUERY } from '../utils/queries';
 
 import { Grid } from 'semantic-ui-react';
 import PostCard from '../components/PostCard';
+import PostForm from '../components/PostForm';
 
 
 
@@ -28,7 +29,7 @@ const Home = () => {
 
 
                 <Grid.Column>
-                    <h1> form for entering new provider</h1>
+                    <PostForm />
                 </Grid.Column>
 
                         <Grid.Column>

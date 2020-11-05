@@ -30,6 +30,7 @@ Upons submission, the page will refresh; if you did not include a name, the post
 - Mongoose ODM
 - jwtDecode
 - icon from icons8.com
+- Semantic-React-UI
 
 
 ## Screenshot
