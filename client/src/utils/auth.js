@@ -1,6 +1,6 @@
 import React, { useReducer, createContext } from 'react';
 import jwtDecode from 'jwt-decode';
-import { LOGIN_USER } from './queries';
+import LOGIN_USER   from '../pages/Login';
 
 const initialState = {
     user: null
@@ -25,7 +25,7 @@ const AuthContext = createContext({
 
 function authReducer(state, action){
     switch(action.type){
-        case 'LOGIN_USER':
+        case LOGIN_USER:
             return{
                 ...state,
                 user: action.payload
