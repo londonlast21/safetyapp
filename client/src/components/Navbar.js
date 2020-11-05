@@ -16,19 +16,31 @@ const Navbar = () => {
         as={Link}
         to="/"
         />
+
+        
         <Menu.Item
         name='login'
         //active={activeItem === 'login'}
         as={Link}
         to="/login"
         />
+
+
         <Menu.Item
         name='signup'
         //active={activeItem === 'signup'}
         as={Link}
         to="/signup"
         />
-    
+
+
+        {/* log out button */}
+        <Menu.Menu position="right">
+        <Menu.Item
+          name='logout'
+        />
+        </Menu.Menu>
+       
         </Menu>
     )
 };

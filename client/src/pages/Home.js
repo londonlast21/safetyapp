@@ -31,13 +31,10 @@ const Home = () => {
                     <h1> form for entering new provider</h1>
                 </Grid.Column>
 
-                {(
-                    posts && posts.map(post => (
-                        <Grid.Column key={post.id} style={{ marginBottom: 10 }}>
-                            <PostCard post={post} />
+                        <Grid.Column>
+                            <PostCard posts={posts} title="Providers" />
                         </Grid.Column>
-                    )) 
-                )} 
+                  
 
 
             </Grid.Row>
