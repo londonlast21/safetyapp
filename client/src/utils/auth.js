@@ -1,68 +1,40 @@
-import React, { useReducer, createContext } from 'react';
-import jwtDecode from 'jwt-decode';
-import LOGIN_USER   from '../pages/Login';
+import decode from 'jwt-decode';
 
-const initialState = {
-    user: null
-};
-
-if(localStorage.getItem('jwtToken')) {
-    const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
-
-    if(decodedToken.exp * 1000 < Date.now()){
-        localStorage.removeItem('jwtToken')
-    } else {
-        initialState.user = decodedToken;
+class AuthService {
+    getProfile() {
+        return decode(this.getToken());
     }
 
-};
+    loggedIn() {
+        const token = this.getToken();
+        return !!token && !this.isTokenExpired(token);
+    }
 
-const AuthContext = createContext({
-    user: null,
-    login: (userData) => {},
-    logout: () => {}
-});
+    isTokenExpired(token) {
+        try {
+            const decoded = decode(token);
+            if (decoded.exp < Date.now() / 1000) {
+                return true;
+            } else return false;
+        } catch (err) {
+            return false;
+        }
+    }
 
-function authReducer(state, action){
-    switch(action.type){
-        case LOGIN_USER:
-            return{
-                ...state,
-                user: action.payload
-            }
-        case 'LOGOUT':
-            return{
-                ...state,
-                user: null
-            }
-        default:
-            return state;
+    getToken() {
+        return localStorage.getItem('id_token');
+    }
+
+    login(idToken) {
+        localStorage.setItem('id_token', idToken);
+
+        window.location.assign('/');
+    }
+
+    logout() {
+        localStorage.removeItem('id_token');
+        window.location.assign('/');
     }
 }
 
-function AuthProvider(props){
-    const [state, dispatch] = useReducer(authReducer, initialState);
-
-    function login(userData){
-            localStorage.setItem("jwtToken", userData.token)
-        dispatch({
-            type: 'LOGIN',
-            payload: userData
-        })
-    }
-
-    function logout(){
-            localStorage.removeItem('jwtToken')
-        dispatch({ type: 'LOGOUT' });
-    }
-
-    return (
-        <AuthContext.Provider
-            value={{ user: state.user, login, logout }}
-            {...props}
-        />
-
-    )
-}
-
-export { AuthContext, AuthProvider }
+export default AuthService();

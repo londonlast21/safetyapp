@@ -12,8 +12,6 @@ import './App.css';
 // Navbar
 import Navbar from './components/Navbar';
 
-// New footer
-import Footer from './components/Footer';
 
 // Component Pages
 import Home from './pages/Home';
@@ -39,8 +37,7 @@ function App() {
                 <Route exact path='/signup' component={Signup}/>
                 <Route exact path="/post/:id" component={SinglePost}/>
                 
-                <Footer />
-                
+            
                 </Container>
             </Router>
         </ApolloProvider>

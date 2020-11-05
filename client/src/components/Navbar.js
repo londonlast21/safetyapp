@@ -2,10 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-import { AuthContext } from '../utils/auth';
+import Auth from '../utils/auth';
 
 function Navbar (){
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useContext(Auth);
   const pathname = window.location.pathname;
 
   const path = pathname === '/' ? 'home' : pathname.substr(1);
