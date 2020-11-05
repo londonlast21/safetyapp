@@ -13,6 +13,8 @@ const Home = () => {
 
     const { loading, data } = useQuery(FETCH_POSTS_QUERY);
     const posts = data?.posts || [];
+    
+    
    
 
     return (
@@ -24,12 +26,10 @@ const Home = () => {
 
             <Grid.Row>
 
-                
-                    <Grid.Column>
-                        <h1>title</h1>
-                    </Grid.Column>
 
-                
+                <Grid.Column>
+                    <h1> form for entering new provider</h1>
+                </Grid.Column>
 
                 {(
                     posts && posts.map(post => (
@@ -38,7 +38,9 @@ const Home = () => {
                         </Grid.Column>
                     )) 
                 )} 
-             </Grid.Row>
+
+
+            </Grid.Row>
         </Grid>
     );     
 }

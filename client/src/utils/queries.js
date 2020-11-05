@@ -2,9 +2,9 @@ import gql from 'graphql-tag';
 
 export const FETCH_POSTS_QUERY = gql`
 
-    {
-        getPosts {
-        id
+query posts($username: String) {
+    posts(username: $username) {
+        _id
         name
         type
         location
@@ -12,12 +12,13 @@ export const FETCH_POSTS_QUERY = gql`
         createdAt
         commentCount
         comments{
-            id 
-            username 
-            createdAt 
+            _id
+            username
+            createdAt
             body
         }
     }
-
 }
+
+
 `;
