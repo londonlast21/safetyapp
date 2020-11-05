@@ -6,7 +6,7 @@ import { Button, Card } from 'semantic-ui-react';
 
 const PostCard = ({ posts: { name, type, createdAt, id, username, commentCount, location }}) => {
 
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
     
     // function commentOnPost(){
     //     console.log("comment")

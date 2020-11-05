@@ -5,7 +5,7 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
 // CSS here
-import 'semantic-ui-css/smeantic.min.css'
+import 'semantic-ui-css'
 
 // Navbar
 

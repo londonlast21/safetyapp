@@ -12,6 +12,7 @@ const Login = props => {
             ...formState,
             [name]: value
         });
+        
     };
 
     const handleFormSubmit = async event => {

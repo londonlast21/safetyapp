@@ -6,7 +6,7 @@ import { FETCH_POSTS_QUERY } from '../utils/queries';
 
 import { Grid } from 'semantic-ui-react';
 import PostCard from '../components/PostCard';
-import PostForm from '../components/PostForm';
+
 
 
 const Home = () => {
@@ -24,12 +24,12 @@ const Home = () => {
 
             <Grid.Row>
 
-                {user && (
+                
                     <Grid.Column>
-                        <PostForm/>
+                        <h1>title</h1>
                     </Grid.Column>
 
-                )}
+                
 
                 {(
                     posts && posts.map(post => (
