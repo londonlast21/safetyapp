@@ -12,6 +12,9 @@ import './App.css';
 // Navbar
 import Navbar from './components/Navbar';
 
+// New footer
+import Footer from './components/Footer';
+
 // Component Pages
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -34,11 +37,9 @@ function App() {
                 <Route exact path='/' component={Home}/>
                 <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
-                <Route exact path="/posts/:postId" component={SinglePost}/>
+                <Route exact path="/post/:id" component={SinglePost}/>
                 
-                
-
-
+                <Footer />
                 
                 </Container>
             </Router>
