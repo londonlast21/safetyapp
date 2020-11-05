@@ -5,12 +5,6 @@ import { useForm } from '../utils/hooks';
 
 const Login = props => {
 
-    const { values, onChange, onSubmit } = useForm(createPostCallback, {
-        name: '',
-        location: '',
-        type: ''
-    });
-    
     const [formState, setFormState] = useState({ email: '', password: ''});
 
     const handleChange = event => {
@@ -41,7 +35,7 @@ const Login = props => {
                     name="username"
                     type="text"
                     value={formState.username}
-                    onChange={onChange}
+                    onChange={handleChange}
                     />
                     <Form.Input
                     label="Password"
@@ -49,7 +43,7 @@ const Login = props => {
                     name="password"
                     type="password"
                     value={formState.password}
-                    onChange={onChange}
+                    onChange={handleChange}
                     />
 
                     <Button type="submit" primary>
