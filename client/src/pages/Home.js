@@ -6,7 +6,7 @@ import { FETCH_POSTS_QUERY } from '../utils/queries';
 
 import { Grid } from 'semantic-ui-react';
 import PostCard from '../components/PostCard';
-import PostForm from '../components/PostForm';
+import PostForm from '../components/PostForm'
 
 
 
