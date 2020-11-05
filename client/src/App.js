@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Container } from 'semantic-ui-react';
+
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
+
+// CSS here
+import 'semantic-ui-css/smeantic.min.css'
+
+// Navbar
+
+
+
+// Component Pages
+import Home from './pages/Home';
+
+
+const client = new ApolloClient({
+    uri: 'http://localhost:3005/graphql'
+});
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return(
+        <ApolloProvider client={client}>
+            <Container>
+                <Home />
+            </Container>    
+        </ApolloProvider>
+
+    );
 }
 
 export default App;
