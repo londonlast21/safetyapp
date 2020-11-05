@@ -1,53 +1,39 @@
-import React, { useContext } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { Grid } from 'semantic-ui-react';
-
-
-import { FETCH_POSTS_QUERY } from '../utils/queries';
-import Auth from '../utils/auth';
-
-
+import React from 'react';
 import PostCard from '../components/PostCard';
-import PostForm from '../components/PostForm'
+import PostForm from '../components/PostForm';
 
+
+import Auth from '../utils/auth';
+import { useQuery } from '@apollo/react-hooks';
+import { FETCH_POSTS_QUERY } from '../utils/queries';
 
 const Home = () => {
+  const { loading, data } = useQuery(FETCH_POSTS_QUERY);
 
-    const  user = useContext(Auth);
-    console.log(user);
+  const posts = data?.posts || [];
 
-    const {data = {}} = useQuery(FETCH_POSTS_QUERY);
+  const loggedIn = Auth.loggedIn();
 
-    const posts = data.getPosts;
-
-
-    return (
-
-        <Grid columns={3}>
-            <Grid.Row className="page-title">
-                <h1>TSafety Directory</h1>
-            </Grid.Row>
-
-            <Grid.Row>
-
-                {user && (
-                <Grid.Column>
-                    <PostForm />
-                </Grid.Column>
-                )}
-
-                {(
-                    posts && posts.map(posts=> (
-                    <Grid.Column key={posts._id} style={{ marginBottom: 10 }}>
-                        <PostCard posts={posts}/>
-                    </Grid.Column>
-                ))
-
-                )}
-
-            </Grid.Row>
-        </Grid>
-    );     
-}
+  return (
+    <main>
+      <div className="flex-row justify-space-between">
+        {loggedIn && (
+          <div className="col-12 mb-3">
+            <PostForm />
+          </div>
+        )}
+        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <PostCard posts={posts} title="Some Feed for Thought(s)..." />
+          )}
+        </div>
+      
+        
+      </div>
+    </main>
+  );
+};
 
 export default Home;
