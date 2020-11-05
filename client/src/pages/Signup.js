@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/react-hooks';
-import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
 
 const Signup = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -34,49 +35,45 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-md-6">
-        <div className="card">
-          <h4 className="card-header">Sign Up</h4>
-          <div className="card-body">
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className="form-input"
-                placeholder="Your username"
-                name="username"
-                type="username"
-                id="username"
-                value={formState.username}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="Your email"
-                name="email"
-                type="email"
-                id="email"
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className="form-input"
-                placeholder="******"
-                name="password"
-                type="password"
-                id="password"
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className="btn d-block w-100" type="submit">
-                Submit
-              </button>
-            </form>
+    <div className="form-container">
+          <Form onSubmit={handleFormSubmit}>
+                <h1 className="signup-title">Sign Up for Account</h1>
+                    <Form.Input
+                    label="Username"
+                    placeholder="Username.."
+                    name="username"
+                    type="text"
+                    id="username"
+                    value={formState.username}
+                    onChange={handleChange}
+                    />
+                    <Form.Input
+                    label="Email"
+                    placeholder="example@example.com"
+                    name="email"
+                    type="email"
+                    id="email"
+                    value={formState.email}
+                    onChange={handleChange}
+                    />
+                    <Form.Input
+                    label="Password"
+                    placeholder="Choose password.."
+                    name="password"
+                    type="password"
+                    id="password"
+                    value={formState.password}
+                    onChange={handleChange}
+                    />
+                
+                    <Button type="submit" primary>
+                        Sign Up
+                    </Button>
+            </Form>
 
             {error && <div>Signup failed</div>}
           </div>
-        </div>
-      </div>
-    </main>
+        
   );
 };
 
