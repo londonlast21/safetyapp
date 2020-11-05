@@ -13,6 +13,8 @@ import Navbar from './components/Navbar';
 
 // Component Pages
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 
 const client = new ApolloClient({
@@ -27,9 +29,9 @@ function App() {
                 <Navbar />
 
                 <Route exact path='/' component={Home}/>
-                {/* <Route exact path='/login' component={Login}/>
+                <Route exact path='/login' component={Login}/>
                 <Route exact path='/signup' component={Signup}/>
-                <Route exact path="/posts/:postId" component={SinglePost}/> */}
+                {/* <Route exact path="/posts/:postId" component={SinglePost}/> */}
                 
                 </Container>
             </Router>
