@@ -28,9 +28,7 @@ const PostCard = ({ posts: { name, type, id, createdAt, commentCount, location }
             <Button color='instagram' as={Link} to={`/posts/${id}`}>
                 Leave Review
             </Button>
-            {/* delet button only shows up on posts user has created */}
-            {/* //{user && user.username === username && <DeleteButton postId={id} />}
-           */}
+    
             </Card.Content>
         </Card>
     );

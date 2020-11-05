@@ -35,6 +35,7 @@ function App() {
                 <Route exact path='/signup' component={Signup}/>
                 <Route exact path="/posts/:postId" component={SinglePost}/>
                 
+                
 
 
                 
