@@ -1,14 +1,12 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
 
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
 // CSS here
-import 'semantic-ui-css'
+
 
 // Navbar
-
 
 
 // Component Pages
@@ -22,9 +20,9 @@ const client = new ApolloClient({
 function App() {
     return(
         <ApolloProvider client={client}>
-            <Container>
-                <Home />
-            </Container>    
+           <div>
+            <Home />   
+            </div>  
         </ApolloProvider>
 
     );
