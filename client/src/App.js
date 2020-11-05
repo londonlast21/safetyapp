@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
 
-import { ApolloProvider, operationName } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 
 // CSS here

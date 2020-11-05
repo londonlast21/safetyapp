@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+
 const PostCard = ({ posts, title }) => {
   if (!posts.length) {
     return <h3>No Thoughts Yet</h3>;

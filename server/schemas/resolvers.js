@@ -112,8 +112,8 @@ const resolvers = {
             return { token, user };
 
         },
-        login: async (parent, { email, password }) => {
-            const user = await User.findOne({ email });
+        login: async (parent, { username, password }) => {
+            const user = await User.findOne({ username });
 
             console.log('hit log in');
 
