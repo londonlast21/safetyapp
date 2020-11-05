@@ -4,8 +4,15 @@ import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
 
-function Navbar (){
-  const { user, logout } = useContext(Auth);
+const Navbar= () => {
+
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
+
+  const  user  = useContext(Auth);
   const pathname = window.location.pathname;
 
   const path = pathname === '/' ? 'home' : pathname.substr(1);

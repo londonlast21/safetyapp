@@ -13,13 +13,13 @@ import PostForm from '../components/PostForm'
 
 const Home = () => {
 
-    const { user } = useContext(Auth);
+    const  user = useContext(Auth);
+    console.log(user);
 
     const {data = {}} = useQuery(FETCH_POSTS_QUERY);
 
     const posts = data.getPosts;
 
-    console.log(posts);
 
     return (
 
