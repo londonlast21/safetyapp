@@ -6,6 +6,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+
         helloWorld: () => {
             return 'hello';
         },
@@ -14,8 +15,8 @@ const resolvers = {
             if (context.user) {
               const userData = await User.findOne({ _id: context.user._id })
                 .select('-__v -password')
-                .populate('thoughts')
-                .populate('friends');
+                .populate('posts')
+                .populate('comments');
       
               return userData;
             }
@@ -23,56 +24,79 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
       
-        async getUsers(){
-            console.log('getusers');
-            try{
-                const users = await User.find().sort({ createdAt: -1 });
-                console.log(users);
+        getUsers: async () => {
+            return User.find()
+            .select('-_v -password')
+            .populate('posts')
+            .populate('comments');
+        },
+
+        // async getUsers(){
+        //     console.log('getusers');
+        //     try{
+        //         const users = await User.find().sort({ createdAt: -1 });
+        //         console.log(users);
                 
-                return users;
-            } catch(err) {
-                throw new Error(err);
-            }
+        //         return users;
+        //     } catch(err) {
+        //         throw new Error(err);
+        //     }
+        // },
+
+        getUser: async (parent, { username }) => {
+            return User.findOne({ username })
+            .select('-_v -password')
+            .populate('posts')
+            .populate('comments');
         },
 
-        async getUser(_, {  }){
-            try{
-            const user = await User.findById(username);
-            if(user){
-                return user;
-            } else {
-                throw new Error('User not found')
-            }
-          } catch(err){
-            throw new Error(err)
-          }
+        // async getUser(_, {  }){
+        //     try{
+        //     const user = await User.findById(username);
+        //     if(user){
+        //         return user;
+        //     } else {
+        //         throw new Error('User not found')
+        //     }
+        //   } catch(err){
+        //     throw new Error(err)
+        //   }
+        // },
+
+        getPosts: async (parent, { username }) => {
+            const params = username ? { username } : {};
+            return Post.find(params).sort({ createdAt: -1 });
         },
 
 
-        async getPosts(){
-            console.log('getposts');
-            try{
-                const posts = await Post.find().sort({ createdAt: -1 });
-                console.log(posts);
+        // async getPosts(){
+        //     console.log('getposts');
+        //     try{
+        //         const posts = await Post.find().sort({ createdAt: -1 });
+        //         console.log(posts);
                 
-                return posts;
-            } catch(err) {
-                throw new Error(err);
-            }
+        //         return posts;
+        //     } catch(err) {
+        //         throw new Error(err);
+        //     }
 
-        },
-        async getPost(_, {  }){
-            try{
-            const post = await Post.findById(postId);
-            if(post){
-                return post;
-            } else {
-                throw new Error('Post not found')
-            }
-          } catch(err){
-            throw new Error(err)
-          }
+        // },
+
+        getPost: async (parents, { _id }) => {
+            return Post.findOne({ _id });
         }
+        // async getPost(_, {  }){
+        //     try{
+        //     const post = await Post.findById(postId);
+        //     if(post){
+        //         return post;
+        //     } else {
+        //         throw new Error('Post not found')
+        //     }
+        //   } catch(err){
+        //     throw new Error(err)
+        //   }
+        // }
 
     },
 
@@ -88,13 +112,13 @@ const resolvers = {
             const user = await User.findOne({ email });
 
             if (!user) {
-                throw new AuthenticationError('Incorrect credentials');
+                throw new AuthenticationError('Invalid credentials');
             }
 
             const correctPw = await user.isCorrectPassword(password);
 
             if (!correctPw) {
-                throw new AuthenticationError('Incorrect credentials');
+                throw new AuthenticationError('Invalid credentials');
             }
 
             const token = signToken(user);

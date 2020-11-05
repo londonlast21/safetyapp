@@ -9,7 +9,7 @@ const CommentSchema = require('./Comment');
 const PostSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        required: 'Must include provider name in post',
         unique: true
     },
     type: {

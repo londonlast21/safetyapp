@@ -44,9 +44,9 @@ const typeDefs = gql`
         me: User
 
         getUsers: [User]
-        getUser(_id: ID!): User
+        getUser(username: ID!): User
 
-        getPosts: [Post]
+        getPosts(username: String): [Post]
         getPost(_id: ID!): Post
     }
 
