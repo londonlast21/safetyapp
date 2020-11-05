@@ -65,6 +65,7 @@ const resolvers = {
 
         getPosts: async (parent, { username }) => {
             const params = username ? { username } : {};
+            console.log('get posts hit');
             return Post.find(params).sort({ createdAt: -1 });
         },
 
@@ -105,11 +106,16 @@ const resolvers = {
             const user = await User.create(args);
             const token = signToken(user);
 
+            console.log('hit add user');
+            console.log(user);
+
             return { token, user };
 
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });
+
+            console.log('hit log in');
 
             if (!user) {
                 throw new AuthenticationError('Invalid credentials');
@@ -134,6 +140,8 @@ const resolvers = {
                 { $push: { posts: post._id } },
                 { new: true }
               );
+
+              console.log('hit post');
       
               return post;
             }
@@ -147,7 +155,10 @@ const resolvers = {
                     { $push: { comments: { commentBody, username: context.user.username } } },
                     { new: true, runValidators: true }
                 );
+
+                console.log('hit comment');
                 return updatedPost;
+
             }
 
             throw new AuthenticationError('Only users may interact');
