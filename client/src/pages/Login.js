@@ -1,75 +1,81 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/react-hooks';
 import { LOGIN_USER } from '../utils/mutations';
 
 
 import Auth from '../utils/auth';
-import { useForm } from '../utils/hooks';
 
-function Login(props) {
-    const context = useContext(Auth)
-    const [errors, setErrors] = useState({});
 
-    const { onChange, onSubmit, values } = useForm(loginCallback, {
-        username: '',
-        password: ''
-    })
+const Login = props => {
+    const [formState, setFormState] = useState({username: '', password: ''});
+    const [login, { error }] = useMutation(LOGIN_USER);
 
-    const [login, { loading }] = useMutation(LOGIN_USER, {
-        update(_, { data: { login: userData }}) {
-            context.login(userData);
-            props.history.push('/');
-        },
-        onError(err){
-            console.log(err);
-        },
-        variables: values
-    })
+    const handleChange = event => {
+        const { name, value } = event.target;
 
-    function loginCallback(){
- 
-        login();
+        setFormState({
+            ...formState,
+            [name]: value
+        });
+    };
 
+    const handleFormSubmit = async event => {
+        event.preventDefault();
+
+        try {
+            const { data } = await login({
+                variables: { ...formState }
+            });
+
+            Auth.login(data.login.token);
+        } catch (e) {
+            console.error(e);
+        }
+
+        setFormState({
+            username: '',
+            password: ''
+        });
     };
 
 
     return (
         <div className="form-container">
-            <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : '' }>
+            <Form onSubmit={handleFormSubmit}>
                 <h1 className="signup-title">Login</h1>
                     <Form.Input
                     label="Username"
                     placeholder="Username.."
                     name="username"
                     type="text"
-                    value={values.username}
-                    error={errors.username ? true : false}
-                    onChange={onChange}
+                    value={formState.username}
+                   // error={errors.username ? true : false}
+                    onChange={handleChange}
                     />
                     <Form.Input
                     label="Password"
                     placeholder="Choose password.."
                     name="password"
                     type="password"
-                    value={values.password}
-                    error={errors.password ? true : false}
-                    onChange={onChange}
+                    value={formState.password}
+                    //error={errors.password ? true : false}
+                    onChange={handleChange}
                     />
 
                     <Button type="submit" primary>
                         Login
                     </Button>
             </Form>
-            {Object.keys(errors).length > 0 && (
+            {/* {Object.keys(errors).length > 0 && (
                 <div className="ui error message">
                 <ul className="list">
                     {Object.values(errors).map(value => (
                         <li key={value}>{value}</li>
                     ))}
                 </ul>
-            </div>
-            )}
+            </div> */}
+            {/* )} */}
         </div>
 
     )
