@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 
+import { useForm } from '../utils/hooks';
+
 const Login = props => {
+
+    const { values, onChange, onSubmit } = useForm(createPostCallback, {
+        name: '',
+        location: '',
+        type: ''
+    });
+    
     const [formState, setFormState] = useState({ email: '', password: ''});
 
     const handleChange = event => {
