@@ -18,7 +18,7 @@ const Home = () => {
 
     const {data = {}} = useQuery(FETCH_POSTS_QUERY);
 
-    const {posts} = data.getPosts;
+    const posts = data.getPosts;
 
 
     return (
