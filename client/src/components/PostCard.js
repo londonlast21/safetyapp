@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 
-import { AuthContext } from '../utils/auth';
+import Auth from '../utils/auth';
 import DeleteButton from './DeleteButton';
 
 
 function PostCard({ posts: { name, type, createdAt, id, username, commentCount, location }}){
 
-    const { user } = useContext(AuthContext);
+    const { user } = useContext(Auth);
     
     function commentOnPost(){
         console.log("comment")

@@ -1,22 +1,25 @@
-import React from 'react';
-
-
+import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { FETCH_POSTS_QUERY } from '../utils/queries';
-
 import { Grid } from 'semantic-ui-react';
+
+
+import { FETCH_POSTS_QUERY } from '../utils/queries';
+import Auth from '../utils/auth';
+
+
 import PostCard from '../components/PostCard';
 import PostForm from '../components/PostForm'
 
 
-
 const Home = () => {
 
-    const { loading, data } = useQuery(FETCH_POSTS_QUERY);
-    const posts = data?.posts || [];
-    
-    
-   
+    const { user } = useContext(Auth);
+
+    const {data = {}} = useQuery(FETCH_POSTS_QUERY);
+
+    const posts = data.getPosts;
+
+    console.log(posts);
 
     return (
 
@@ -27,16 +30,20 @@ const Home = () => {
 
             <Grid.Row>
 
-
+                {user && (
                 <Grid.Column>
                     <PostForm />
                 </Grid.Column>
+                )}
 
-                        <Grid.Column>
-                            <PostCard posts={posts} title="Providers" />
-                        </Grid.Column>
-                  
+                {(
+                    posts && posts.map(posts=> (
+                    <Grid.Column key={posts._id} style={{ marginBottom: 10 }}>
+                        <PostCard posts={posts}/>
+                    </Grid.Column>
+                ))
 
+                )}
 
             </Grid.Row>
         </Grid>
