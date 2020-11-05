@@ -9,7 +9,7 @@ import ApolloClient from 'apollo-boost';
 import 'semantic-ui-css/semantic.min.css';
 
 // Navbar
-
+import Navbar from './components/Navbar';
 
 // Component Pages
 import Home from './pages/Home';
@@ -22,9 +22,17 @@ const client = new ApolloClient({
 function App() {
     return(
         <ApolloProvider client={client}>
-           <div>
-            <Home />   
-            </div>  
+           <Router>
+                <Container>
+                <Navbar />
+
+                <Route exact path='/' component={Home}/>
+                {/* <Route exact path='/login' component={Login}/>
+                <Route exact path='/signup' component={Signup}/>
+                <Route exact path="/posts/:postId" component={SinglePost}/> */}
+                
+                </Container>
+            </Router>
         </ApolloProvider>
 
     );
