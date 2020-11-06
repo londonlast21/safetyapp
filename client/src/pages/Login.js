@@ -6,7 +6,7 @@ import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const Login = () => {
+const Login = props => {
   const [formState, setFormState] = useState({ username: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
 
@@ -56,7 +56,7 @@ const Login = () => {
                   />
                   <Form.Input
                   label="Password"
-                  placeholder="Choose password.."
+                  placeholder="Enter your password.."
                   name="password"
                   type="password"
                   value={formState.password}
