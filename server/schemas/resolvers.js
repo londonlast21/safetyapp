@@ -150,6 +150,7 @@ const resolvers = {
             }
             throw new AuthenticationError('Only users may interact');
         },
+        
 
         addComment: async (parent, { postId, commentBody }, context) => {
             if (context.user) {
