@@ -31,6 +31,7 @@ Upons submission, the page will refresh; if you did not include a name, the post
 - jwtDecode
 - icon from icons8.com
 - Semantic-React-UI
+- dotenv
 
 
 ## Screenshot
