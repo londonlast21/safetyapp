@@ -35,20 +35,25 @@ const Signup = () => {
 
       try {
           console.log(formState);
-          
+
+
+            // correct before this line
           const { data } = await addUser({
               variables: { ...formState }
+
 
               
               
           });
+          
+          //this is storing as an object with the right data
+          console.log(data);
 
-          console.log(formState);
-
-          Auth.login(data.login.token);
+          Auth.login(data.addUser.token);
 
 
       } catch (e) {
+          // correct here
           console.log(formState);
           
           console.error(e);

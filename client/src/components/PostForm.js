@@ -16,6 +16,8 @@ function PostForm(){
         type: ''
     });
 
+    console.log('hit post front');
+
     const [addPost, { error }] = useMutation(CREATE_POST_MUTATION, {
         variables: values,
         update(proxy, result) {
@@ -28,9 +30,12 @@ function PostForm(){
           values.location = '';
           values.type = '';
         }
+        
       });
 
     function addPostCallback(){
+
+        console.log('hit cllbk success post');
         addPost();
         window.location.reload();
     }
