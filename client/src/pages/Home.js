@@ -37,11 +37,13 @@ const Home = () => {
                     <PostForm />
                 </Grid.Column>
                 )}
+                
                <Grid.Column style={{ marginBottom: 10 }}>
                     {loading ? (
                         <div>Loading...</div>
 
                     ):(
+                        
                         <PostCard posts={posts}/>
                     
                     )}
