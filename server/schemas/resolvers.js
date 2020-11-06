@@ -24,24 +24,24 @@ const resolvers = {
             throw new AuthenticationError('Not logged in');
         },
       
-        getUsers: async () => {
-            return User.find()
-            .select('-_v -password')
-            .populate('posts')
-            .populate('comments');
-        },
-
-        // async getUsers(){
-        //     console.log('getusers');
-        //     try{
-        //         const users = await User.find().sort({ createdAt: -1 });
-        //         console.log(users);
-                
-        //         return users;
-        //     } catch(err) {
-        //         throw new Error(err);
-        //     }
+        // getUsers: async () => {
+        //     return User.find()
+        //     .select('-_v -password')
+        //     .populate('posts')
+        //     .populate('comments');
         // },
+
+        async getUsers(){
+            console.log('getusers');
+            try{
+                const users = await User.find().sort({ createdAt: -1 });
+                console.log(users);
+                
+                return users;
+            } catch(err) {
+                throw new Error(err);
+            }
+        },
 
         getUser: async (parent, { username }) => {
             return User.findOne({ username })
@@ -63,25 +63,19 @@ const resolvers = {
         //   }
         // },
 
-        getPosts: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            console.log('get posts hit');
-            return Post.find(params).sort({ createdAt: -1 });
-        },
 
-
-        // async getPosts(){
-        //     console.log('getposts');
-        //     try{
-        //         const posts = await Post.find().sort({ createdAt: -1 });
-        //         console.log(posts);
+        async getPosts(){
+            console.log('getposts');
+            try{
+                const posts = await Post.find().sort({ createdAt: -1 });
+                console.log('i hit get posts');
                 
-        //         return posts;
-        //     } catch(err) {
-        //         throw new Error(err);
-        //     }
+                return posts;
+            } catch(err) {
+                throw new Error(err);
+            }
 
-        // },
+        },
 
         getPost: async (parents, { _id }) => {
             return Post.findOne({ _id });
