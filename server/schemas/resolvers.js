@@ -63,6 +63,8 @@ const resolvers = {
         // },
 
 
+        // 
+
         async getPosts(){
             console.log('getposts');
             try{
@@ -76,7 +78,7 @@ const resolvers = {
 
         },
 
-        getPost: async (parents, { _id }) => {
+        getPost: async (parent, { _id }) => {
             return Post.findOne({ _id });
         }
         // async getPost(_, {  }){
@@ -105,10 +107,13 @@ const resolvers = {
             return { token, user };
 
         },
+
+
         login: async (parent, { username, password }) => {
             const user = await User.findOne({ username });
 
             console.log('hit log in');
+            console.log(username);
 
             if (!user) {
                 throw new AuthenticationError('Invalid credentials');
@@ -121,8 +126,13 @@ const resolvers = {
             }
 
             const token = signToken(user);
+            console.log(token);
+            console.log('logged in');
             return { token, user};
+            
         },
+
+
         // mutations for create
         addPost: async (parent, args, context) => {
             if (context.user) {
