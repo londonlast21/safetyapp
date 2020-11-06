@@ -11,6 +11,7 @@ const Signup = () => {
     const [addUser, { error }] = useMutation(ADD_USER);
 
     console.log('hit1');
+    
   
 
     const handleChange = event => {
@@ -27,15 +28,29 @@ const Signup = () => {
       // submit form
       const handleFormSubmit = async event => {
         event.preventDefault();
-        console.log('hir add user');    
+        console.log(formState);
+
+
+        console.log('hit front add user');    
 
       try {
+          console.log(formState);
+          
           const { data } = await addUser({
               variables: { ...formState }
+
+              
+              
           });
 
-          Auth.login(data.addUser.token);
+          console.log(formState);
+
+          Auth.login(data.login.token);
+
+
       } catch (e) {
+          console.log(formState);
+          
           console.error(e);
       } 
 
