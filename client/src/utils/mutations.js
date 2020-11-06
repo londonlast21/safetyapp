@@ -60,12 +60,7 @@ addPost(name: $name,
     location: $location,
     type: $type
 ){
-    _id name location type username createdAt 
-    comments{
-        _id createdAt username body
-    }
-    commentCount
-    }
+    name}
 }
 ` 
 ;

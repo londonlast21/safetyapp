@@ -135,8 +135,9 @@ const resolvers = {
 
         // mutations for create
         addPost: async (parent, args, context) => {
+            console.log({context});
             if (context.user) {
-              const post = await Post.create({ ...args, username: context.user.username });
+              const post = await Post.create({ ...args, username: context.user._id });
       
               await User.findByIdAndUpdate(
                 { _id: context.user._id },

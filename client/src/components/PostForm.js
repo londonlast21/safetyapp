@@ -7,6 +7,8 @@ import { useForm } from '../utils/hooks';
 import { FETCH_POSTS_QUERY } from '../utils/queries';
 import { SUBMIT_COMMENT_MUTATION, CREATE_POST_MUTATION } from '../utils/mutations';
 
+
+
 function PostForm(){
 
 
@@ -17,10 +19,14 @@ function PostForm(){
     });
 
     console.log('hit post front');
+    
 
     const [addPost, { error }] = useMutation(CREATE_POST_MUTATION, {
+
         variables: values,
+
         update(proxy, result) {
+            console.log('hit update');
           const data = proxy.readQuery({
             query: FETCH_POSTS_QUERY
           });
@@ -33,11 +39,13 @@ function PostForm(){
         
       });
 
+      console.log({error});
+
     function addPostCallback(){
 
         console.log('hit cllbk success post');
         addPost();
-        window.location.reload();
+        //window.location.reload();
     }
     
 
@@ -52,7 +60,7 @@ function PostForm(){
                     name="name"
                     onChange={onChange}
                     value={values.name}
-                    error={error ? true : false}
+                    //error={error ? true : false}
                     />
 
                 <Form.Input
@@ -60,7 +68,7 @@ function PostForm(){
                     name="location"
                     onChange={onChange}
                     value={values.location}
-                    error={error ? true : false}
+                    //error={error ? true : false}
                     />
 
                 <Form.Input
@@ -68,7 +76,7 @@ function PostForm(){
                     name="type"
                     onChange={onChange}
                     value={values.type}
-                    error={error ? true : false}
+                    //error={error ? true : false}
                     />
                 
                 <Button type="submit" color="instagram" >
@@ -78,13 +86,13 @@ function PostForm(){
         </Form>
         
         
-        {error && (
+        {/* {error && (
             <div className="ui error message" style={{ margin: 10 }}>
                 <ul className="list">
                     <li>{error.graphQLErrors[0].message}</li>
                 </ul>
             </div>
-        )}
+        )} */}
     </>
     );
     
