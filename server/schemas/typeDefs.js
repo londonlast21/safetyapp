@@ -44,15 +44,15 @@ const typeDefs = gql`
         me: User
 
         getUsers: [User]
-        getUser(username: ID!): User
+        getUser(username: String!): User
 
         getPosts: [Post]
         getPost(_id: ID!): Post
     }
 
     type Mutation {
-        login(email: String!, password: String!): Auth
-        addUser(username: String!, email: String!, password: String!): Auth
+        login(username: String!, password: String!): User
+        addUser(username: String!, email: String!, password: String!): User
         addPost(name: String!, type: String!, location: String!): Post
         addComment(postId:ID!, commentBody: String!): Post
     }
