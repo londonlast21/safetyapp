@@ -9,10 +9,14 @@ import { ADD_USER } from '../utils/mutations';
 const Signup = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '' });
     const [addUser, { error }] = useMutation(ADD_USER);
+
+    console.log('hit1');
   
 
     const handleChange = event => {
         const { name, value } = event.target;
+
+        console.log('hit2');
     
         setFormState({
           ...formState,
@@ -79,7 +83,7 @@ const Signup = () => {
                         Sign Up
                     </Button>
             </Form>
-                {error && <div>Account creation failed</div>} 
+                {/* {error && <div>Account creation failed</div>}  */}
             
         </div>
 

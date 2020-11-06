@@ -97,16 +97,16 @@ const resolvers = {
     },
 
     Mutation: {
-        // addUser: async (parent, args) => {
-        //     const user = await User.create(args);
-        //     const token = signToken(user);
+        addUser: async (parent, args) => {
+            const user = await User.create(args);
+            const token = signToken(user);
 
-        //     console.log('hit add user');
-        //     console.log(user);
+            console.log('hit add user back end');
+            console.log(user);
 
-        //     return { token, user };
+            return { token, user };
 
-        // },
+        },
 
 
         login: async (parent, { username, password }) => {
