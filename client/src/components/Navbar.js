@@ -13,6 +13,13 @@ const Navbar= () => {
 
 
   const  loggedIn  = Auth.loggedIn();
+
+  // get username from logged in user??
+  // const username = ;
+
+
+
+
   const pathname = window.location.pathname;
 
   const path = pathname === '/' ? 'home' : pathname.substr(1);
@@ -22,10 +29,12 @@ const Navbar= () => {
 
   const navBar = loggedIn ? (
 
+    
+
     // menu from user who is logged in
     <Menu pointing size="huge" color="grey">
       <Menu.Item
-        name={loggedIn.username}
+        name={loggedIn}
         active
         as={Link}
         to="/"
