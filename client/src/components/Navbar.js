@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const Navbar= () => {
   };
 
 
-  const  user  = useContext(Auth);
+  const  loggedIn  = Auth.loggedIn();
   const pathname = window.location.pathname;
 
   const path = pathname === '/' ? 'home' : pathname.substr(1);
@@ -20,12 +20,12 @@ const Navbar= () => {
 
   const handleItemClick = (e, { name }) => setActiveItem(name);
 
-  const navBar = user ? (
+  const navBar = loggedIn ? (
 
     // menu from user who is logged in
     <Menu pointing size="huge" color="grey">
       <Menu.Item
-        name={user.username}
+        name={loggedIn.username}
         active
         as={Link}
         to="/"
