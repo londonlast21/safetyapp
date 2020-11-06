@@ -10,6 +10,8 @@ import { FETCH_POSTS_QUERY } from '../utils/queries';
 const Home = () => {
   const { loading, data } = useQuery(FETCH_POSTS_QUERY);
 
+  console.log
+
   const posts = data?.posts || [];
 
   const loggedIn = Auth.loggedIn();

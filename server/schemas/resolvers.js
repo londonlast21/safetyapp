@@ -65,17 +65,22 @@ const resolvers = {
 
         // 
 
-        async getPosts(){
-            console.log('getposts');
-            try{
-                const posts = await Post.find().sort({ createdAt: -1 });
-                console.log('i hit get posts');
+        // async getPosts(){
+        //     console.log('getposts');
+        //     try{
+        //         const posts = await Post.find().sort({ createdAt: -1 });
+        //         console.log('i hit get posts');
                 
-                return posts;
-            } catch(err) {
-                throw new Error(err);
-            }
+        //         return posts;
+        //     } catch(err) {
+        //         throw new Error(err);
+        //     }
 
+        // },
+
+        getPosts: async (parent, {username}) => {
+            const params = username ? { username } : {};
+            return Post.find(params).sort({ createdAt: -1});
         },
 
         getPost: async (parent, { _id }) => {

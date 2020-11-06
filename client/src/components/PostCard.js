@@ -11,12 +11,13 @@ import DeleteButton from './DeleteButton';
 
 
 function PostCard({ posts: { name, type, createdAt, id, username, commentCount, location }}){
-
+    console.log(name);
+    
     const loggedIn = useContext(Auth);
     
-    function addComment(){
-        console.log("comment")
-    }
+    // function addComment(){
+    //     console.log("comment")
+    // }
     return (
         <Card fluid>
               <Card.Content>

@@ -13,14 +13,18 @@ import PostForm from '../components/PostForm'
 
 const Home = () => {
 
-    const  loggedIn = Auth.loggedIn();
-    
+    const { loading, data } = useQuery(FETCH_POSTS_QUERY);
 
-    const { loading, data } =useQuery(FETCH_POSTS_QUERY);
-
-    const posts = data?.getPosts || [];
+    console.log(data);
+    const posts = data?.posts || [];
 
     console.log(posts);
+    
+    const  loggedIn = Auth.loggedIn();
+
+   
+
+  
 
 
     return (
@@ -37,16 +41,16 @@ const Home = () => {
                     <PostForm />
                 </Grid.Column>
                 )}
-               <Grid.Column style={{ marginBottom: 10 }}>
-                    {loading ? (
-                        <div>Loading...</div>
-
-                    ):(
-                        <PostCard posts={posts}/>
+                
+                { posts && (
                     
-                )}
-                </Grid.Column>
-
+                    <div><h1>there are posts</h1></div>
+                    // posts.map(posts => (
+                    //     <Grid.Column key={posts.id} style={{ marginBottom: 10 }}>
+                    //         <PostCard post={posts} />
+                    //     </Grid.Column>
+                    // )) 
+                )} 
             </Grid.Row>
         </Grid>
     );     

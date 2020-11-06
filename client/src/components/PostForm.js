@@ -45,7 +45,7 @@ function PostForm(){
 
         console.log('hit cllbk success post');
         addPost();
-        //window.location.reload();
+        window.location.reload();
     }
     
 
@@ -60,7 +60,7 @@ function PostForm(){
                     name="name"
                     onChange={onChange}
                     value={values.name}
-                    //error={error ? true : false}
+                    error={error ? true : false}
                     />
 
                 <Form.Input
@@ -68,7 +68,7 @@ function PostForm(){
                     name="location"
                     onChange={onChange}
                     value={values.location}
-                    //error={error ? true : false}
+                    error={error ? true : false}
                     />
 
                 <Form.Input
@@ -76,7 +76,7 @@ function PostForm(){
                     name="type"
                     onChange={onChange}
                     value={values.type}
-                    //error={error ? true : false}
+                    error={error ? true : false}
                     />
                 
                 <Button type="submit" color="instagram" >
@@ -86,13 +86,13 @@ function PostForm(){
         </Form>
         
         
-        {/* {error && (
+        {error && (
             <div className="ui error message" style={{ margin: 10 }}>
                 <ul className="list">
                     <li>{error.graphQLErrors[0].message}</li>
                 </ul>
             </div>
-        )} */}
+        )}
     </>
     );
     
