@@ -33,7 +33,7 @@ mutation addUser(
 }
 
 `
-
+;
 
 
 export const CREATE_POST_MUTATION =gql`
@@ -54,7 +54,7 @@ addPost(name: $name,
     }
 }
 ` 
-
+;
 export const SUBMIT_COMMENT_MUTATION = gql`
 mutation($postId: ID!, $commentBody: String!){
     addComment(postId: $postId, body: $body){

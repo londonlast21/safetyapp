@@ -5,54 +5,46 @@ import { useMutation } from '@apollo/react-hooks';
 import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
+const Signup = () => {
+  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [addUser, { error }] = useMutation(ADD_USER);
 
-const Signup = props => {
-    const [formState, setFormState] = useState({ username: '', email: '', password: '' });
-    const [addUser, { error }] = useMutation(ADD_USER);
-  
+  // update state based on form input changes
+  const handleChange = event => {
+    const { name, value } = event.target;
+    console.log('front end chnge');
 
-    const handleChange = event => {
-        const { name, value } = event.target;
-    
-        setFormState({
-          ...formState,
-          [name]: value
-        });
-      };
-    
-      // submit form
-      const handleFormSubmit = async event => {
-        event.preventDefault();
-        console.log('hir add user');    
+    setFormState({
+      ...formState,
+      [name]: value
+    });
+  };
 
-      try {
-          const { data } = await addUser({
-              variables: { ...formState }
-          });
+  // submit form
+  const handleFormSubmit = async event => {
+    event.preventDefault();
 
-          Auth.login(data.addUser.token);
-      } catch (e) {
-          console.error(e);
-      } 
-
-      setFormState({
-          username:'',
-          email:'',
-          password:''
+    try {
+      const { data } = await addUser({
+        variables: { ...formState }
       });
-    };
-    
 
-    return (
-        <div className="form-container">
-            <Form onSubmit={handleFormSubmit}>
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <div className="form-container">
+          <Form onSubmit={handleFormSubmit}>
                 <h1 className="signup-title">Sign Up for Account</h1>
                     <Form.Input
                     label="Username"
                     placeholder="Username.."
                     name="username"
                     type="text"
-                    id="username"
+                   // id="username"
                     value={formState.username}
                     onChange={handleChange}
                     />
@@ -61,7 +53,7 @@ const Signup = props => {
                     placeholder="example@example.com"
                     name="email"
                     type="email"
-                    id="email"
+                    //id="email"
                     value={formState.email}
                     onChange={handleChange}
                     />
@@ -70,7 +62,7 @@ const Signup = props => {
                     placeholder="Choose password.."
                     name="password"
                     type="password"
-                    id="password"
+                    //id="password"
                     value={formState.password}
                     onChange={handleChange}
                     />
@@ -79,12 +71,11 @@ const Signup = props => {
                         Sign Up
                     </Button>
             </Form>
-                {error && <div>Account creation failed</div>} 
-            
-        </div>
 
-    );
-
+            {error && <div>Signup failed</div>}
+          </div>
+        
+  );
 };
 
 export default Signup;
