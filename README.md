@@ -29,10 +29,9 @@ Upons submission, the page will refresh; if you did not include a name, the post
 - Node.JS
 - Mongoose ODM
 - jwtDecode
-- icon from icons8.com
 - Semantic-React-UI
 - dotenv
-- icons from iconarchive.com
+- icons from icons8.com
 
 
 
