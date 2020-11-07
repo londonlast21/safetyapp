@@ -12,16 +12,16 @@ import PostForm from '../components/PostForm'
 
 
 const Home = () => {
-
-    const { loading, data } = useQuery(FETCH_POSTS_QUERY);
-
-    console.log(data);
-    const posts = data?.posts || [];
-
-    console.log(posts);
     
     const  loggedIn = Auth.loggedIn();
 
+    const {data = {}} = useQuery(FETCH_POSTS_QUERY);
+
+    
+
+    const posts = data.getPosts;
+
+    console.log(posts);
    
 
   
