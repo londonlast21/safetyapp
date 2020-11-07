@@ -1,7 +1,7 @@
-const { MONGODB_URI } = require('../../keys');
+// const { MONGODB_URI } = require('../../keys');
 const mongoose = require('mongoose');
 
-mongoose.connect(MONGODB_URI || 'mongodb://localhost/safetyapp', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/safetyapp', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
