@@ -16,7 +16,8 @@
   "dependencies": {
     "apollo-boost": "^0.4.9",
     "dotenv": "^8.2.0",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "typescript": "^4.0.5"
   },
   "devDependencies": {
     "concurrently": "^5.1.0"
