@@ -4,8 +4,8 @@
   "description": "A trans-safe healthcare directory",
   "main": "server.js",
   "scripts": {
-    "start": "server.js",
-    "watch": "nodemon"
+    "start": "node server",
+    
   },
   "repository": {
     "type": "git",
