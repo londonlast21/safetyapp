@@ -7,8 +7,8 @@ const FILES_TO_CACHE = [
   "./index.html",
   "./manifest.json",
   "./favicon.ico",
-  "./logo192-192x192.png",
-  "./logo512-512x512.png",
+  "./icons/logo192-192x192.png",
+  "./icons/logo512-512x512.png",
 
   "./src/components/DeleteButton.js",
   "./src/components/Navbar.js",
