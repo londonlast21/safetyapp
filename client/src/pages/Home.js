@@ -45,11 +45,11 @@ const Home = () => {
                 { loggedIn && (
                     
                     //<div><h1>there are posts</h1></div>
-                    posts.map(posts => (
+                   // posts.map(posts => (
                         <Grid.Column key={posts.id} style={{ marginBottom: 10 }}>
                             <PostCard post={posts} />
                         </Grid.Column>
-                    )) 
+                 //   )) 
                 )} 
             </Grid.Row>
         </Grid>

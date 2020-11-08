@@ -32,7 +32,7 @@ Upons submission, the page will refresh; if you did not include a name, the post
 - icon from icons8.com
 - Semantic-React-UI
 - dotenv
-- icons from iconarchive.com
+- icons from iconsarchive.com
 
 
 
@@ -41,5 +41,6 @@ Upons submission, the page will refresh; if you did not include a name, the post
 
 
 ## Links
-[Github Repository](https://github.com/londonlast21/final)
-[Deployed App]
+- [Github Repository](https://github.com/londonlast21/final)
+
+- [Deployed App](https://intense-coast-41555.herokuapp.com/)
