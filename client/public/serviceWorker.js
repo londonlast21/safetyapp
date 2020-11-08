@@ -11,11 +11,11 @@ const FILES_TO_CACHE = [
   "/icons/logo512-512x512.png",
 
   // "/src/components/DeleteButton.js",
-  // "/src/components/Navbar.js",
+  "/src/components/Navbar.js",
   // "/src/components/PostCard.js",
   // "/src/components/PostForm.js",
 
-  // "/src/pages/Home.js",
+  "/src/pages/Home.js",
   // "/src/pages/Login.js",
   // "/src/pages/Signup.js",
   
@@ -25,10 +25,10 @@ const FILES_TO_CACHE = [
   // // "./src/utils/queries.js",
   // // "./src/utils/mutations.js",
 
-  // "/src/App.js",
-  // "/src/App.css",
-  // "/src/index.css",
-  // "/src/logo.svg",
+  "/src/App.js",
+  "/src/App.css",
+  "/src/index.css",
+  "/src/logo.svg",
 
   "/src/serviceWorker.js"
 

@@ -19,11 +19,13 @@ function PostForm(){
     });
 
     console.log('hit post front');
+
     
 
     const [addPost, { error }] = useMutation(CREATE_POST_MUTATION, {
 
         variables: values,
+    
 
         update(proxy, result) {
             console.log('hit update');
