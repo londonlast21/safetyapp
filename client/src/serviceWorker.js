@@ -10,6 +10,50 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+
+
+
+
+
+
+
+
+const APP_PREFIX = 'safetyapp-';     
+const VERSION = 'version_01';
+const CACHE_NAME = APP_PREFIX + VERSION
+const FILES_TO_CACHE = [
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "/favicon.ico",
+  "/icons/logo192-192x192.png",
+  "/icons/logo512-512x512.png",
+
+  // "/src/components/DeleteButton.js",
+  "/src/components/Navbar.js",
+  // "/src/components/PostCard.js",
+  // "/src/components/PostForm.js",
+
+  "/src/pages/Home.js",
+  // "/src/pages/Login.js",
+  // "/src/pages/Signup.js",
+  
+
+  // // "./src/utils/auth.js",
+  // // "./src/utils/hooks.js",
+  // // "./src/utils/queries.js",
+  // // "./src/utils/mutations.js",
+
+  "/src/App.js",
+  "/src/App.css",
+  "/src/index.css",
+  "/src/logo.svg",
+
+  "/src/serviceWorker.js"
+
+ 
+];
+
 const isLocalhost = Boolean(
     window.location.hostname === 'localhost' ||
       // [::1] is the IPv6 localhost address.

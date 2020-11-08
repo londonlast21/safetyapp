@@ -30,7 +30,7 @@ const FILES_TO_CACHE = [
   "/src/index.css",
   "/src/logo.svg",
 
-  "/serviceWorker.js"
+  "/src/serviceWorker.js"
 
  
 ];
