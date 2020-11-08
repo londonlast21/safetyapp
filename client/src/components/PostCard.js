@@ -21,17 +21,12 @@ function PostCard({ posts: { name, type, createdAt, id, username, commentCount, 
     return (
         <Card fluid>
               <Card.Content>
-                <Card.Header as={Link} to={`/posts/${id}`}>
-                    {/* {name} */}
-                    Dr. Test Example
-                </Card.Header>
+                <Card.Header as={Link} to={`/posts/${id}`}>{name}</Card.Header>
                 <Card.Meta>{moment(createdAt).fromNow(true)}</Card.Meta>
                 <Card.Description>
                     <ul>
-                        {/* <li>{type}</li>
-                        <li>{location}</li> */}
-                        <li>Surgeon</li>
-                        <li>Madison, WI</li>
+                        <li>{type}</li>
+                        <li>{location}</li>
                         
                     
                     </ul>
