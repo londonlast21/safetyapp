@@ -14,12 +14,12 @@ The purpose of this hidden content is to prevent accusations of slander, by rest
 
 ### Adding New Providers:
 
-<!-- When entering a new provider, the required fields are 'Provider Name', 'Type', and 'Location'.  After filling these out, the user clicks 'Submit' to add them to the provider database.  The user's newly submitted entry will appear first in the list of provider cards, upon page refresh.
+When entering a new provider, the required fields are 'Provider Name', 'Type', and 'Location'.  After filling these out, the user clicks 'Submit' to add them to the provider database.  The user's newly submitted entry will appear first in the list of provider cards, upon page
 
 Duplicate providers are not allowed; should the user submit a double entry, or a provider already listed, upon submission their post will not appear.
 
 Upons submission, the page will refresh; if you did not include a name, the post will not appear or be added to the database.
- -->
+
 
 
 ## Technology Used
@@ -40,6 +40,10 @@ Upons submission, the page will refresh; if you did not include a name, the post
 
 
 ## Screenshot
+
+
+![transv2](https://user-images.githubusercontent.com/65084173/98454562-898d9600-212b-11eb-8d20-61d8fb94037b.png)
+
 
 
 ## Links
