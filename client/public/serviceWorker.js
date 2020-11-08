@@ -10,20 +10,20 @@ const FILES_TO_CACHE = [
   "/icons/logo192-192x192.png",
   "/icons/logo512-512x512.png",
 
-  // "/src/components/DeleteButton.js",
+  "/src/components/DeleteButton.js",
   "/src/components/Navbar.js",
-  // "/src/components/PostCard.js",
-  // "/src/components/PostForm.js",
+  "/src/components/PostCard.js",
+  "/src/components/PostForm.js",
 
   "/src/pages/Home.js",
-  // "/src/pages/Login.js",
-  // "/src/pages/Signup.js",
+  "/src/pages/Login.js",
+  "/src/pages/Signup.js",
   
 
-  // // "./src/utils/auth.js",
-  // // "./src/utils/hooks.js",
-  // // "./src/utils/queries.js",
-  // // "./src/utils/mutations.js",
+  "/src/utils/auth.js",
+  "/src/utils/hooks.js",
+  "/src/utils/queries.js",
+  "/src/utils/mutations.js",
 
   "/src/App.js",
   "/src/App.css",
