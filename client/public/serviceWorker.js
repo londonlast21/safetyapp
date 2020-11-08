@@ -6,19 +6,18 @@ const FILES_TO_CACHE = [
   "/",
   "/index.html",
   "/manifest.json",
-  "/favicon.ico"
-  ,
-  // "/icons/logo192-192x192.png",
-  // "/icons/logo512-512x512.png",
+  "/favicon.ico",
+  "/icons/logo192-192x192.png",
+  "/icons/logo512-512x512.png",
 
-  // "./src/components/DeleteButton.js",
-  // "./src/components/Navbar.js",
-  // "./src/components/PostCard.js",
-  // "./src/components/PostForm.js",
+  "/src/components/DeleteButton.js",
+  "/src/components/Navbar.js",
+  "/src/components/PostCard.js",
+  "/src/components/PostForm.js",
 
-  // "./src/pages/Home.js",
-  // "./src/pages/Login.js",
-  // "./src/pages/Signup.js",
+  "/src/pages/Home.js",
+  "/src/pages/Login.js",
+  "/src/pages/Signup.js"
   
 
   // "./src/utils/auth.js",
