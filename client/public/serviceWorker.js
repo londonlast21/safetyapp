@@ -5,7 +5,17 @@ const CACHE_NAME = APP_PREFIX + VERSION
 const FILES_TO_CACHE = [
   "/",
   "./index.html",
-  "./manifest.json"
+  "./manifest.json",
+  "./favicon.ico",
+  "./logo192-192x192.png",
+  "./logo512-512x512.png",
+
+  "./src/components/DeleteButton.js",
+  "./src/components/Navbar.js",
+  "./src/components/PostCard.js",
+  "./src/components/PostForm.js"
+
+
  
 ];
 // Respond with cached resources
