@@ -46,8 +46,8 @@ const Home = () => {
                     
                     //<div><h1>there are posts</h1></div>
                    // posts.map(posts => (
-                        <Grid.Column key={posts.id} style={{ marginBottom: 10 }}>
-                            <PostCard post={posts} />
+                        <Grid.Column tyle={{ marginBottom: 10 }}>
+                            <PostCard/>
                         </Grid.Column>
                  //   )) 
                 )} 
