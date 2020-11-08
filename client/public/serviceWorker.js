@@ -13,8 +13,24 @@ const FILES_TO_CACHE = [
   "./src/components/DeleteButton.js",
   "./src/components/Navbar.js",
   "./src/components/PostCard.js",
-  "./src/components/PostForm.js"
+  "./src/components/PostForm.js",
 
+  "./src/pages/Home.js",
+  "./src/pages/Login.js",
+  "./src/pages/Signup.js",
+  
+
+  "./src/utils/auth.js",
+  "./src/utils/hooks.js",
+  "./src/utils/queries.js",
+  "./src/utils/mutations.js",
+
+  "./src/App.js",
+  "./src/App.css",
+  "./src/index.css",
+  "./src/logo.svg",
+
+  "./src/serviceWorker.js"
 
  
 ];
