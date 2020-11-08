@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-const secret = 'wigoletta has five new hats';
+const secret = process.env.SECRET_KEY;
 const expiration = '1h';
 
 module.exports = {
