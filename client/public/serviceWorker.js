@@ -17,7 +17,7 @@ const FILES_TO_CACHE = [
 
   "/src/pages/Home.js",
   "/src/pages/Login.js",
-  "/src/pages/Signup.js"
+  "/src/pages/Signup.js",
   
 
   // "./src/utils/auth.js",
@@ -25,12 +25,12 @@ const FILES_TO_CACHE = [
   // "./src/utils/queries.js",
   // "./src/utils/mutations.js",
 
-  // "./src/App.js",
-  // "./src/App.css",
-  // "./src/index.css",
-  // "./src/logo.svg",
+  "/src/App.js",
+  "/src/App.css",
+  "/src/index.css",
+  "/src/logo.svg",
 
-  // "./src/serviceWorker.js"
+  "/src/serviceWorker.js"
 
  
 ];
