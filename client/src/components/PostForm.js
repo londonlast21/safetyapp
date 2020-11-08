@@ -35,6 +35,7 @@ function PostForm(){
           values.name = '';
           values.location = '';
           values.type = '';
+          
         }
         
       });
