@@ -5,8 +5,11 @@ const DATA_CACHE_NAME = "data-cache-" + VERSION;
 
 const FILES_TO_CACHE = [
     "/",
-    "./index.html"
+    "./index.html",
+    "./favicon.ico"
 ];
+
+
 
 // Cache resources
 self.addEventListener("install", function(event) {
