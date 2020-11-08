@@ -34,7 +34,7 @@ const Navbar= () => {
     // menu from user who is logged in
     <Menu pointing size="huge" color="grey">
       <Menu.Item
-        name={loggedIn.name}
+        name={loggedIn}
         active
         as={Link}
         to="/"
