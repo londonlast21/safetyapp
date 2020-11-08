@@ -40,15 +40,18 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
-  <script> 
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('sw-cached-site.js', function() {
-        navigator.serviceWorker.register('serviceWorker.js', {
-          scope: '/',
-        });
-      });
-    } 
-    window.process = { env: { NODE_ENV: 'production' } };
+  <script type="text/javascript">
+    (function() {
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/serviceWorker.js")
+          .then(() => console.log("Service Worker registered successfully."))
+          .catch(error =>
+            console.log("Service Worker registration failed:", error)
+          );
+      }
+    })();
   </script>
+  
   
 </html>
