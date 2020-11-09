@@ -12,12 +12,12 @@ const Navbar= () => {
   };
 
 
-  const {username, loggedIn }  = useContext(Auth);
+  const {username, loggedIn, data }  = useContext(Auth);
 
   // get username from logged in user??
   // const username = ;
 
-  const name = getUser(data);
+  const name = data.username;
   console.log(name)
 
 
@@ -36,7 +36,7 @@ const Navbar= () => {
     // menu from user who is logged in
     <Menu pointing size="huge" color="grey">
       <Menu.Item
-        name={username}
+        name={loggedIn}
         active
         as={Link}
         to="/"
