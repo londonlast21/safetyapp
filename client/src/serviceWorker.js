@@ -1,51 +1,51 @@
-// This optional code is used to register a service worker.
-// register() is not called by default.
+// // This optional code is used to register a service worker.
+// // register() is not called by default.
 
-// This lets the app load faster on subsequent visits in production, and gives
-// it offline capabilities. However, it also means that developers (and users)
-// will only see deployed updates on subsequent visits to a page, after all the
-// existing tabs open on the page have been closed, since previously cached
-// resources are updated in the background.
+// // This lets the app load faster on subsequent visits in production, and gives
+// // it offline capabilities. However, it also means that developers (and users)
+// // will only see deployed updates on subsequent visits to a page, after all the
+// // existing tabs open on the page have been closed, since previously cached
+// // resources are updated in the background.
 
-// To learn more about the benefits of this model and instructions on how to
-// opt-in, read https://bit.ly/CRA-PWA
+// // To learn more about the benefits of this model and instructions on how to
+// // opt-in, read https://bit.ly/CRA-PWA
 
 
-const APP_PREFIX = 'safety-app-';
-const VERSION = 'v1';
-const CACHE_NAME = APP_PREFIX + VERSION;
-const DATA_CACHE_NAME = "data-cache-" + VERSION;
+// const APP_PREFIX = 'safety-app-';
+// const VERSION = 'v1';
+// const CACHE_NAME = APP_PREFIX + VERSION;
+// const DATA_CACHE_NAME = "data-cache-" + VERSION;
 
-const FILES_TO_CACHE = [
-  '/',
+// const FILES_TO_CACHE = [
+//   '/',
 
-  '/index.html',
+//   '/index.html',
   
 
-  '/src/App.js',
-  '/src/App.css',
-  '/src/index.js',
+//   '/src/App.js',
+//   '/src/App.css',
+//   '/src/index.js',
 
-  '/src/utils/auth.js',
-  '/src/utils/mutations.js',
-  '/src/utils/queries/js',
+//   '/src/utils/auth.js',
+//   '/src/utils/mutations.js',
+//   '/src/utils/queries/js',
   
-  '/src/pages/Home.js',
-  '/src/pages/Login.js',
-  '/src/pages/Signup.js',
-  '/src/pages/SinglePost.js',
+//   '/src/pages/Home.js',
+//   '/src/pages/Login.js',
+//   '/src/pages/Signup.js',
+//   '/src/pages/SinglePost.js',
 
-  '/src/components/DeleteButton.js',
-  '/src/components/Navbar.js',
-  '/src/components/PostCard.js',
-  '/src/components/PostForm.js',
+//   '/src/components/DeleteButton.js',
+//   '/src/components/Navbar.js',
+//   '/src/components/PostCard.js',
+//   '/src/components/PostForm.js',
 
-  '/icons/logo192-192x192.png',
-  '/icons/logo512-512x512.png',
+//   '/icons/logo192-192x192.png',
+//   '/icons/logo512-512x512.png',
 
-  '/favicon.ico',
-  '/manifest.json'
-];
+//   '/favicon.ico',
+//   '/manifest.json'
+// ];
 
 // // Install a service worker
 // window.addEventListener('install', event => {
