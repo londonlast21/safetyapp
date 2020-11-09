@@ -17,6 +17,7 @@ const Navbar= () => {
   // get username from logged in user??
   // const username = ;
 
+  console.log({Auth});
 
 
 
