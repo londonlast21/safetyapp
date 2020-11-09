@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ const Navbar= () => {
   };
 
 
-  const  loggedIn  = Auth.loggedIn();
+  const {username, loggedIn }  = useContext(Auth);
 
   // get username from logged in user??
   // const username = ;
@@ -36,7 +36,7 @@ const Navbar= () => {
     // menu from user who is logged in
     <Menu pointing size="huge" color="grey">
       <Menu.Item
-        name={loggedIn}
+        name={username}
         active
         as={Link}
         to="/"
