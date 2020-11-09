@@ -11,6 +11,8 @@ const Navbar= () => {
     Auth.logout();
   };
   
+  const { name }= getUser(data);
+  console.log(name);
 
 
   const  loggedIn  = Auth.loggedIn();
