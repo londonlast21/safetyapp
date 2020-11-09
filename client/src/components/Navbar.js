@@ -13,14 +13,13 @@ const Navbar= () => {
 
  const { name, data } = useContext(data);
 
- const username = data?.username || [];
+ const username = data?.name || [];
  console.log(username);
   const  loggedIn  = Auth.loggedIn();
 
   // get username from logged in user??
   // const username = ;
-  console.log('fromauth')
-  console.log({Auth});
+  
 
 
 
