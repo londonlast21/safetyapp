@@ -22,7 +22,7 @@ const Navbar= () => {
   const { data: userData } = useQuery(QUERY_ME);
   const user = {userData };
 
-  const name = userData?.username;
+  const name = {data};
   console.log(name);
 
 
