@@ -1,7 +1,7 @@
 let CACHE_NAME = 'safety-app';
 let urlsToCache = [
   '/',
-  '/completed'
+  './index.html'
 ];
 
 // Install a service worker
