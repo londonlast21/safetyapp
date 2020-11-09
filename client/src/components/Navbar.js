@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
+import { useQuery } from '@apollo/react-hooks';
+
 import Auth from '../utils/auth';
 import { QUERY_ME } from '../utils/queries';
 
