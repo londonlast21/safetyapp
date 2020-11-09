@@ -1,82 +1,48 @@
-
-const APP_PREFIX = 'safetyapp-';     
-const VERSION = 'version_01';
-const CACHE_NAME = APP_PREFIX + VERSION
-const FILES_TO_CACHE = [
-  "/",
-  "/index.html",
-  "/manifest.json",
-  "/favicon.ico",
-  "/icons/logo192-192x192.png",
-  "/icons/logo512-512x512.png",
-
-  "/src/components/DeleteButton.js",
-  "/src/components/Navbar.js",
-  "/src/components/PostCard.js",
-  "/src/components/PostForm.js",
-
-  "/src/pages/Home.js",
-  "/src/pages/Login.js",
-  "/src/pages/Signup.js",
-  
-
-  "/src/utils/auth.js",
-  "/src/utils/hooks.js",
-  "/src/utils/queries.js",
-  "/src/utils/mutations.js",
-
-  "/src/App.js",
-  "/src/App.css",
-  "/src/index.css",
-  "/src/logo.svg",
-
-  "/src/serviceWorker.js"
-
- 
+let CACHE_NAME = 'safety-app';
+let urlsToCache = [
+  '/',
+  '/completed'
 ];
-// Respond with cached resources
-self.addEventListener('fetch', function (e) {
-  console.log('fetch request : ' + e.request.url)
-  e.respondWith(
-    caches.match(e.request).then(function (request) {
-      if (request) { // if cache is available, respond with cache
-        console.log('responding with cache : ' + e.request.url)
-        return request
-      } else {       // if there are no cache, try fetching request
-        console.log('file is not cached, fetching : ' + e.request.url)
-        return fetch(e.request)
-      }
-      // You can omit if/else for console.log & put one line below like this too.
-      // return request || fetch(e.request)
-    })
-  )
-})
-// Cache resources
-self.addEventListener('install', function (e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      console.log('installing cache : ' + CACHE_NAME)
-      return cache.addAll(FILES_TO_CACHE)
-    })
-  )
-})
-// Delete outdated caches
-self.addEventListener('activate', function (e) {
-  e.waitUntil(
-    caches.keys().then(function (keyList) {
-      // `keyList` contains all cache names under your username.github.io
-      // filter out ones that has this app prefix to create keeplist
-      let cacheKeeplist = keyList.filter(function (key) {
-        return key.indexOf(APP_PREFIX);
+
+// Install a service worker
+self.addEventListener('install', event => {
+  // Perform install steps
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
       })
-      // add current cache name to keeplist
-      cacheKeeplist.push(CACHE_NAME);
-      return Promise.all(keyList.map(function (key, i) {
-        if (cacheKeeplist.indexOf(key) === -1) {
-          console.log('deleting cache : ' + keyList[i] );
-          return caches.delete(keyList[i]);
+  );
+});
+
+// Cache and return requests
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
         }
-      }));
+        return fetch(event.request);
+      }
+    )
+  );
+});
+
+// Update a service worker
+self.addEventListener('activate', event => {
+  let cacheWhitelist = ['safety-app'];
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
     })
   );
 });

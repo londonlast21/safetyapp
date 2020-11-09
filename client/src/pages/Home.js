@@ -42,7 +42,7 @@ const Home = () => {
                 </Grid.Column>
                 )}
                 
-                {/* { loggedIn && (
+                {loggedIn && (
                     
                     <div><h1>there are posts</h1></div>
                     // posts.map(posts => (
@@ -50,7 +50,7 @@ const Home = () => {
                     //         <PostCard post={posts} />
                     //     </Grid.Column>
                     // )) 
-                )}  */}
+                )}
             </Grid.Row>
         </Grid>
     );     
