@@ -10,17 +10,15 @@ const Navbar= () => {
     event.preventDefault();
     Auth.logout();
   };
-  
-  const { name }= getUser(data);
-  console.log(name);
 
 
   const  loggedIn  = Auth.loggedIn();
 
   // get username from logged in user??
   // const username = ;
-  console.log('fromauth')
-  console.log({Auth});
+
+  const { name, data } = getUser(data);
+  console.log(name)
 
 
 
