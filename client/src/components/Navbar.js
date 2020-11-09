@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -10,16 +10,15 @@ const Navbar= () => {
     event.preventDefault();
     Auth.logout();
   };
+  
 
- const { name, data } = useContext(data);
 
- const username = data?.name || [];
- console.log(username);
   const  loggedIn  = Auth.loggedIn();
 
   // get username from logged in user??
   // const username = ;
-  
+  console.log('fromauth')
+  console.log({Auth});
 
 
 
