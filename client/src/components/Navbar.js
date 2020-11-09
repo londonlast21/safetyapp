@@ -20,7 +20,7 @@ const Navbar= () => {
   // get username from logged in user??
   // const username = ;
   const { data: userData } = useQuery(QUERY_ME);
-  const user = userData.username;
+  const user = data.username;
 
   console.log(user);
 
