@@ -3,6 +3,7 @@ import { Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import Auth from '../utils/auth';
+import { QUERY_ME } from '../utils/queries';
 
 const Navbar= () => {
 
@@ -16,7 +17,10 @@ const Navbar= () => {
 
   // get username from logged in user??
   // const username = ;
-console.log(loggedIn);
+  const { data: userData } = useQuery(QUERY_ME);
+  const user = userData.username;
+
+  console.log(user);
 
 
 
