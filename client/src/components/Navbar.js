@@ -12,7 +12,7 @@ const Navbar= () => {
   };
 
 
-  const { loggedIn, data }  = useContext(Auth);
+  const { data }  = useContext(Auth);
 
   // get username from logged in user??
   // const username = ;
