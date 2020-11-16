@@ -11,7 +11,7 @@ import PostCard from '../components/PostCard';
 import PostForm from '../components/PostForm'
 
 
-const Home = ({data, posts}) => {
+const Home = ({}) => {
     
     const  loggedIn = Auth.loggedIn();
 
@@ -19,7 +19,7 @@ const Home = ({data, posts}) => {
 
     console.log(data);
 
-    //const posts = data.getPosts;
+    const posts = data.getPosts;
 
     console.log(posts);
    
