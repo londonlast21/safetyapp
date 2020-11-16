@@ -10,13 +10,13 @@ import Auth from '../utils/auth';
 import DeleteButton from './DeleteButton';
 
 
-function PostCard({ posts: { name, type, createdAt, id, username, commentCount, location }}){
+function PostCard({ posts,  name, type, createdAt, id, username, commentCount, location }){
     console.log(name);
     
     const loggedIn = useContext(Auth);
     
     // function addComment(){
-    //     console.log("comment")
+         console.log(posts);
     // }
     return (
         <Card fluid>
