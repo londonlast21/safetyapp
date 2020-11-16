@@ -17,7 +17,6 @@ const Home = () => {
 
     const {data = {}} = useQuery(FETCH_POSTS_QUERY);
 
-    console.log(data);
     
 
     const posts = data.getPosts;
@@ -46,13 +45,13 @@ const Home = () => {
                 {loggedIn && (
             
                     
-                   // <div><h1>there are posts</h1></div>
-                   // posts.map(posts => (
-                        <Grid.Column style={{ marginBottom: 10 }}>
-                            <PostCard post={posts} />
+                    <div><h1>there are posts</h1></div>
+                    // posts.map(posts => (
+                    //     <Grid.Column style={{ marginBottom: 10 }}>
+                    //         <PostCard post={posts} />
                             
-                        </Grid.Column>
-                    //)) 
+                    //     </Grid.Column>
+                    // )) 
                 )}
 
 
