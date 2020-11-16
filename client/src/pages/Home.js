@@ -11,13 +11,13 @@ import PostCard from '../components/PostCard';
 import PostForm from '../components/PostForm'
 
 
-const Home = () => {
+const Home = ({data, posts}) => {
     
     const  loggedIn = Auth.loggedIn();
 
     const {data = {}} = useQuery(FETCH_POSTS_QUERY);
 
-    
+    console.log(data);
 
     const posts = data.getPosts;
 
