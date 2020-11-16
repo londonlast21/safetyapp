@@ -19,7 +19,7 @@ const Home = ({data, posts}) => {
 
     console.log(data);
 
-    const posts = data.getPosts;
+    //const posts = data.getPosts;
 
     console.log(posts);
    
